@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  time-slot-manager:
+    build: .
+    ports:
+      - '3000:3000'
+
