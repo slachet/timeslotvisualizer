@@ -238,11 +238,11 @@ function App() {
           Export
         </Button>
         <input type="file" accept=".txt" onChange={handleImport} style={{ display: 'none' }} id="import-button" />
+        <Button variant="contained" color="info" component="span">
         <label htmlFor="import-button">
-          <Button variant="contained" color="info" component="span">
-            Import
-          </Button>
+          Import
         </label>
+        </Button>
         <Button variant="contained" color="error" onClick={handleDeleteSelected}>
           Delete Selected
         </Button>
@@ -269,7 +269,7 @@ function App() {
                     <TableCell align="center">IP Address</TableCell>
                     <TableCell align="center">Start DateTime</TableCell>
                     <TableCell align="center">End DateTime</TableCell>
-                    <TableCell align="center">Timeslot</TableCell>
+                    <TableCell align="center">Time Slot</TableCell>
                     <TableCell align="center"></TableCell>
                   </TableRow>
                 </TableHead>
