@@ -81,7 +81,7 @@ function App() {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const lines = e.target.result.split('\n').filter(line => line.trim() !== '');
+        const lines = e.target.result.split(/\r\n|\n/).filter(line => line.trim() !== '');
         const importedRows = lines.map((line) => {
           const [name, ip, start, end] = line.split('\t');
           return {
@@ -102,11 +102,11 @@ function App() {
   const handleExport = () => {
     const content = rows
       .map((row) => {
-        const startFormatted = row.start ? format(row.start, 'yyyy-MM-dd HH:mm') : '';
-        const endFormatted = row.end ? format(row.end, 'yyyy-MM-dd HH:mm') : '';
+        const startFormatted = row.start ? format(row.start, 'yyyy-MM-dd HH:mm:ss') : '';
+        const endFormatted = row.end ? format(row.end, 'yyyy-MM-dd HH:mm:ss') : '';
         return `${row.name}\t${row.ip}\t${startFormatted}\t${endFormatted}`;
       })
-      .join('\n');
+      .join('\r\n');
     const blob = new Blob([content], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
